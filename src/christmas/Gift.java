@@ -2,7 +2,7 @@ package christmas;
 
 import enums.Category;
 
-final class Gift {
+public final class Gift {
     private String productName;
     private double price;
     private Category category;

@@ -4,7 +4,7 @@ import enums.Category;
 
 import java.util.List;
 
-final class Child {
+public final class Child {
     private int id;
     private String lastName;
     private int age;

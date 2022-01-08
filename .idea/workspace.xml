@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/InitialData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/AnnualChange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/christmas/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/christmas/Gift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/person/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/ChildUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/ChildUpdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641644165076</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="obiectul initial data">
+      <created>1641646542194</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1641646542194</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -112,6 +118,7 @@
     <MESSAGE value="obiectul child" />
     <MESSAGE value="obiectul gift" />
     <MESSAGE value="obiectul ChildUpdate" />
-    <option name="LAST_COMMIT_MESSAGE" value="obiectul ChildUpdate" />
+    <MESSAGE value="obiectul initial data" />
+    <option name="LAST_COMMIT_MESSAGE" value="obiectul initial data" />
   </component>
 </project>

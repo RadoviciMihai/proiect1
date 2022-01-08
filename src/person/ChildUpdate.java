@@ -4,7 +4,7 @@ import enums.Category;
 
 import java.util.List;
 
-class ChildUpdate {
+public final class ChildUpdate {
     private int id;
     private double niceScore;
     private List<Category> giftsPreferences;

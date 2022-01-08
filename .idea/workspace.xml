@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="am creat proiectul">
-      <change afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
+    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/christmas/Gift.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +82,19 @@
       <option name="project" value="LOCAL" />
       <updated>1641605472752</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="obiectul child">
+      <created>1641642888425</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1641642888425</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="am creat proiectul" />
-    <option name="LAST_COMMIT_MESSAGE" value="am creat proiectul" />
+    <MESSAGE value="obiectul child" />
+    <option name="LAST_COMMIT_MESSAGE" value="obiectul child" />
   </component>
 </project>

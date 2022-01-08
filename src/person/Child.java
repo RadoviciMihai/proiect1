@@ -13,11 +13,11 @@ final class Child {
     private List<Category> giftsPreferences;
 
     Child(final int id,
-                 final String lastName,
-                 final int age,
-                 final String city,
-                 final double niceScore,
-                 final List<Category> giftsPreferences) {
+          final String lastName,
+          final int age,
+          final String city,
+          final double niceScore,
+          final List<Category> giftsPreferences) {
         this.id = id;
         this.lastName = lastName;
         this.age = age;

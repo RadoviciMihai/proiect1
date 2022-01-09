@@ -12,6 +12,7 @@ public final class Checker {
     private Checker() {
         //constructor for checkstyle
     }
+
     /**
      * This method is used to calculate total score of the implementation and checkstyle
      */
@@ -24,7 +25,7 @@ public final class Checker {
 
     /**
      * This method is used to calculate the score of checkstyle
-     *
+     * <p>
      * (5 points maximum)
      */
     private static int calculateScoreCheckstyle() {
@@ -33,7 +34,7 @@ public final class Checker {
 
     /**
      * This method is used to calculate score of implementation
-     *
+     * <p>
      * 25 tests (60 points maximum)
      */
     private static int calculateScoreAllTests() {
@@ -48,13 +49,11 @@ public final class Checker {
 
     /**
      * This method calculates the score of only one single test
-     *
+     * <p>
      * It compares the /output/out_{testNumber}.json file with the /ref/ref_test{testNumber}.json
      *
-     * @param testNumber
-     *          the testNumber you want to calculate score for
-     * @return
-     *          the score of that test (2 for tests : 1-15) (3 for tests : 16 - 25)
+     * @param testNumber the testNumber you want to calculate score for
+     * @return the score of that test (2 for tests : 1-15) (3 for tests : 16 - 25)
      */
     public static int calculateScore(final Integer testNumber) {
         if (checkOutput(testNumber)) {
@@ -72,10 +71,8 @@ public final class Checker {
     /**
      * It compares the /output/out_{testNumber}.json file with the /ref/ref_test{testNumber}.json
      *
-     * @param testNumber
-     *          the testNumber you want to calculate score for
-     * @return
-     *          if the two files are equal or not
+     * @param testNumber the testNumber you want to calculate score for
+     * @return if the two files are equal or not
      */
     private static boolean checkOutput(final Integer testNumber) {
         ObjectMapper mapper = new ObjectMapper();
@@ -101,11 +98,8 @@ public final class Checker {
     }
 
     /**
-     *
-     * @param testNumber
-     *      the testNumber you want to calculate score for
-     * @return
-     *      the score of that test (2 for tests : 1-15) (3 for tests : 16 - 25)
+     * @param testNumber the testNumber you want to calculate score for
+     * @return the score of that test (2 for tests : 1-15) (3 for tests : 16 - 25)
      */
     private static int getScoreForTest(final Integer testNumber) {
         return (testNumber >= 1 && testNumber <= Constants.TESTS_NUMBER_SMALL)

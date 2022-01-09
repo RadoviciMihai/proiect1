@@ -6,7 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/checker/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/Checker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/AnnualChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/AnnualChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/InitialData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/Cities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Cities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/input/FileIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/input/FileIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/ChildUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/ChildUpdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641757363165</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="am adugat README.md">
+      <created>1641761363056</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1641761363056</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,6 +192,7 @@
     <MESSAGE value="am modificat ca orasele sa fie enum, nu string" />
     <MESSAGE value="prima stare functionala" />
     <MESSAGE value="am terminat cu punctajul&#10; :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="am terminat cu punctajul&#10; :)" />
+    <MESSAGE value="am adugat README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="am adugat README.md" />
   </component>
 </project>

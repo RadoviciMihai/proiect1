@@ -42,15 +42,16 @@ final class InitialData {
     }
 
     public void ageAllChildren() {
-        for(Child child : children) {
-            child.setAge(child.getAge()+1);
+        for (Child child : children) {
+            child.setAge(child.getAge() + 1);
         }
     }
 
-    public Child getChildById(int id) {
-        for(Child child : getChildren()) {
-            if(child.getId() == id)
+    public Child getChildById(final int id) {
+        for (Child child : getChildren()) {
+            if (child.getId() == id) {
                 return child;
+            }
         }
         return null;
     }

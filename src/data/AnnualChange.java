@@ -1,13 +1,14 @@
 package data;
 
 import christmas.Gift;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import person.Child;
 import person.ChildUpdate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public final class AnnualChange {
     private final double newSantaBudget;

@@ -1,20 +1,22 @@
 package input;
 
 import common.Constants;
-import data.DataBase;
-import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
 public class FileIterator {
-    private final File dir, outDir;
+    private final File dir;
+    private final File outDir;
 
-    public FileIterator(final String inPath, final String outPath) throws IOException {
+    public FileIterator(final String inPath, final String outPath)
+            throws IOException {
         this.dir = new File(inPath);
         Path path = Paths.get(outPath);
         if (!Files.exists(path)) {
@@ -36,11 +38,12 @@ public class FileIterator {
 
     }
 
-    public void run() throws IOException, ParseException {
+    public final void run() throws IOException, ParseException {
         if (dir.listFiles() != null) {
             for (File file : Objects.requireNonNull(dir.listFiles())) {
 
-                String filepath = Constants.OUTPUT_PATH + file.getName().substring(4);
+                String filepath = Constants.OUTPUT_PATH
+                        + file.getName().substring(Constants.CUT_LENGTH);
                 File out = new File(filepath);
                 boolean isCreated = out.createNewFile();
                 if (isCreated) {
@@ -52,14 +55,16 @@ public class FileIterator {
 
     private void runTest(final String absolutePath,
                          final String filepath)
-                         throws ParseException,
-                         IOException {
+            throws ParseException,
+            IOException {
         InputLoader inputLoader = new InputLoader(absolutePath);
-        try{
-            FileWriter fw=new FileWriter(filepath);
+        try {
+            FileWriter fw = new FileWriter(filepath);
             fw.write(inputLoader.getDataBase().run().toJSONString());
             fw.close();
-        }catch(Exception e){System.out.println(e);}
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }

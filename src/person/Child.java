@@ -1,5 +1,6 @@
 package person;
 
+import common.Constants;
 import enums.Category;
 import enums.Cities;
 import org.json.simple.JSONArray;
@@ -50,7 +51,7 @@ public final class Child {
             Category preference = Category.retrieveByCategory(categoryString);
             giftsPreferences.add(preference);
         }
-        this.giftsPreferences=giftsPreferences;
+        this.giftsPreferences = giftsPreferences;
         this.listaScoruri = new ArrayList<>();
         this.listaScoruri.add(this.niceScore);
     }
@@ -63,13 +64,13 @@ public final class Child {
 
     public void update(final ChildUpdate childUpdate) {
         addToScoreList(childUpdate.getNiceScore());
-        for(Category category : childUpdate.getGiftsPreferences()) {
+        for (Category category : childUpdate.getGiftsPreferences()) {
             giftsPreferences.remove(category);
         }
 
         int iter = 0;
-        for(Category category : childUpdate.getGiftsPreferences()) {
-            if(!giftsPreferences.contains(category)) {
+        for (Category category : childUpdate.getGiftsPreferences()) {
+            if (!giftsPreferences.contains(category)) {
                 giftsPreferences.add(iter, category);
                 iter++;
             }
@@ -77,17 +78,18 @@ public final class Child {
     }
 
     public double getAverageScore() {
-        if (age < 5) {
-            return 10;
+
+        if (age < Constants.BABY_LIMIT) {
+            return Constants.KID_NICE_SCORE;
         }
-        if (age < 12) {
+        if (age < Constants.KID_LIMIT) {
             double total = 0;
             for (Double i : listaScoruri) {
                 total += i;
             }
             return total / listaScoruri.size();
         }
-        if (age < 19) {
+        if (age < Constants.TEEN_LIMIT) {
             double total = 0;
             int pondere = 0;
             int n = listaScoruri.size();
@@ -166,7 +168,7 @@ public final class Child {
 
     public JSONArray getGiftsPreferencesJson() {
         JSONArray categoryList = new JSONArray();
-        for(Category category : giftsPreferences) {
+        for (Category category : giftsPreferences) {
             categoryList.add(category.getValue());
         }
         return categoryList;

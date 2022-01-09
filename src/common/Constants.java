@@ -10,6 +10,12 @@ public final class Constants {
     public static final Integer MAXIMUM_ERROR_CHECKSTYLE = 30;
     public static final Integer CHECKSTYLE_POINTS = 10;
     public static final Integer TESTS_NUMBER_SMALL = 15;
+    public static final Integer BABY_LIMIT = 5;
+    public static final Integer KID_LIMIT = 12;
+    public static final Integer TEEN_LIMIT = 19;
+    public static final Integer CUT_LENGTH = 4;
+    public static final Integer KID_NICE_SCORE = 10;
+
 
     private Constants() {
         //constructor for checkstyle

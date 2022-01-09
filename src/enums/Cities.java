@@ -44,7 +44,7 @@ public enum Cities {
         this.value = value;
     }
 
-    public static Cities retrieveByCities(String str) {
+    public static Cities retrieveByCities(final String str) {
         return switch (str) {
             case "Bucuresti" -> Cities.BUCURESTI;
             case "Constanta" -> Cities.CONSTANTA;

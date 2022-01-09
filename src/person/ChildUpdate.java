@@ -22,10 +22,11 @@ public final class ChildUpdate {
 
     public ChildUpdate(final JSONObject json) {
         this.id = ((Long) json.get("id")).intValue();
-        if (json.get("niceScore") != null)
+        if (json.get("niceScore") != null) {
             this.niceScore = ((Long) json.get("niceScore")).doubleValue();
-        else
+        } else {
             this.niceScore = -1;
+        }
         List<Category> giftsPreferences = new ArrayList<>();
         JSONArray jsonArray = (JSONArray) json.get("giftsPreferences");
         for (Object o : jsonArray) {
@@ -33,7 +34,7 @@ public final class ChildUpdate {
             Category preference = Category.retrieveByCategory(categoryString);
             giftsPreferences.add(preference);
         }
-        this.giftsPreferences=giftsPreferences;
+        this.giftsPreferences = giftsPreferences;
     }
 
     public int getId() {

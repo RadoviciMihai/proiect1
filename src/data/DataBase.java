@@ -1,6 +1,7 @@
 package data;
 
 import christmas.Gift;
+import common.Constants;
 import enums.Category;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,7 +9,6 @@ import person.Child;
 import person.ChildUpdate;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public final class DataBase {
@@ -49,14 +49,14 @@ public final class DataBase {
         double averageScoreSum = 0;
         List<Child> children = initialData.getChildren();
         for (Child child : children) {
-            if (child.getAge() < 19) {
+            if (child.getAge() < Constants.TEEN_LIMIT) {
                 averageScoreSum += child.getAverageScore();
             }
         }
         double budgetUnit = getSantaBudget() / averageScoreSum;
         JSONArray listaCopii = new JSONArray();
         for (Child child : children) {
-            if (child.getAge() < 19) {
+            if (child.getAge() < Constants.TEEN_LIMIT) {
                 Double assignedBudget = budgetUnit * child.getAverageScore();
                 JSONObject copilJson = new JSONObject();
                 copilJson.put("id", child.getId());
@@ -72,17 +72,19 @@ public final class DataBase {
                 copilJson.put("assignedBudget", assignedBudget);
 
                 JSONArray receivedGifts = new JSONArray();
-                for(Category category : child.getGiftsPreferences()) {
+                for (Category category : child.getGiftsPreferences()) {
                     if (getCheapestGift(category) != null) {
-                        if (assignedBudget >= getCheapestGift(category).getPrice()) {
+                        if (assignedBudget
+                                >= getCheapestGift(category).getPrice()) {
                             receivedGifts.add(
                                     getCheapestGift(
-                                            category).getJsonObject());
-                            assignedBudget -= getCheapestGift(category).getPrice();
+                                    category).getJsonObject());
+                            assignedBudget -= getCheapestGift(
+                                    category
+                                ).getPrice();
                         }
                     }
                 }
-                //System.out.println(child.getId() + " | " + receivedGifts.toJSONString());
                 copilJson.put("receivedGifts", receivedGifts);
                 listaCopii.add(copilJson);
             }
@@ -92,11 +94,11 @@ public final class DataBase {
         return outputChildren;
     }
 
-    public JSONObject run(){
+    public JSONObject run() {
         JSONObject result = new JSONObject();
         JSONArray annualChildren = new JSONArray();
         annualChildren.add(getOutputChildren());
-        for (int i=0; i < numberOfYears; i++) {
+        for (int i = 0; i < numberOfYears; i++) {
             update(i);
             annualChildren.add(getOutputChildren());
         }
@@ -109,8 +111,8 @@ public final class DataBase {
         double minPrice = Double.MAX_VALUE;
         Gift cheapestGift = null;
         for (Gift gift : giftList) {
-            if (gift.getCategory() == category &&
-                    gift.getPrice() < minPrice) {
+            if (gift.getCategory() == category
+                    && gift.getPrice() < minPrice) {
                 minPrice = gift.getPrice();
                 cheapestGift = gift;
             }
@@ -118,18 +120,20 @@ public final class DataBase {
         return cheapestGift;
     }
 
-    public void update(int i) {
+    public void update(final int i) {
         initialData.ageAllChildren();
-        for(Child child : annualChanges.get(i).getNewChildren()) {
+        for (Child child : annualChanges.get(i).getNewChildren()) {
             initialData.getChildren().add(child);
         }
-        for(ChildUpdate childUpdate :
-                annualChanges.get(i).getChildrenUpdates()) {
-            if (initialData.getChildById(childUpdate.getId()) != null)
-                initialData.getChildById(childUpdate.getId()).update(childUpdate);
+        for (ChildUpdate childUpdate
+                : annualChanges.get(i).getChildrenUpdates()) {
+            if (initialData.getChildById(childUpdate.getId()) != null) {
+                initialData.getChildById(
+                        childUpdate.getId()).update(childUpdate);
+            }
         }
         santaBudget = annualChanges.get(i).getNewSantaBudget();
-        for(Gift gift : annualChanges.get(i).getNewGifts()) {
+        for (Gift gift : annualChanges.get(i).getNewGifts()) {
             initialData.getSantaGiftsList().add(gift);
         }
     }

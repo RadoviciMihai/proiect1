@@ -32,7 +32,7 @@ public enum Category {
         return value;
     }
 
-    public static Category retrieveByCategory(String str) {
+    public static Category retrieveByCategory(final String str) {
         return switch (str) {
             case "Board Games" -> Category.BOARD_GAMES;
             case "Books" -> Category.BOOKS;

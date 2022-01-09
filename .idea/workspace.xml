@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
+    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="am modificat ca orasele sa fie enum, nu string">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/christmas/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/christmas/Gift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/InitialData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/enums/Cities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Cities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/input/FileIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/input/FileIterator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/person/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/ChildUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/ChildUpdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +50,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tema" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/output" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Proiecte\POO\proiect1\output" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -134,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641690330526</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="am modificat ca orasele sa fie enum, nu string">
+      <created>1641733285549</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1641733285549</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,6 +165,7 @@
     <MESSAGE value="obiectul anual change" />
     <MESSAGE value="obiectul DataBase" />
     <MESSAGE value="am adaugat input loader si am modificat toate clasele pentru a primi un constructor cu un JSONObject ca argument" />
-    <option name="LAST_COMMIT_MESSAGE" value="am adaugat input loader si am modificat toate clasele pentru a primi un constructor cu un JSONObject ca argument" />
+    <MESSAGE value="am modificat ca orasele sa fie enum, nu string" />
+    <option name="LAST_COMMIT_MESSAGE" value="am modificat ca orasele sa fie enum, nu string" />
   </component>
 </project>

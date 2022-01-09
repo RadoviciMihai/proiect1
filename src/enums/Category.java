@@ -28,6 +28,10 @@ public enum Category {
         this.value = value;
     }
 
+    public String getValue() {
+        return value;
+    }
+
     public static Category retrieveByCategory(String str) {
         return switch (str) {
             case "Board Games" -> Category.BOARD_GAMES;

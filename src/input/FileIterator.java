@@ -5,10 +5,7 @@ import data.DataBase;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,9 +38,10 @@ public class FileIterator {
 
     public void run() throws IOException, ParseException {
         if (dir.listFiles() != null) {
+            int i = 0;
             for (File file : Objects.requireNonNull(dir.listFiles())) {
-
-                String filepath = Constants.OUTPUT_PATH + file.getName();
+                i++;
+                String filepath = Constants.OUTPUT_PATH + i + Constants.FILE_EXTENSION;
                 File out = new File(filepath);
                 boolean isCreated = out.createNewFile();
                 if (isCreated) {
@@ -58,7 +56,12 @@ public class FileIterator {
                          throws ParseException,
                          IOException {
         InputLoader inputLoader = new InputLoader(absolutePath);
-
+        //System.out.println(inputLoader.getDataBase().run().toString());
+        try{
+            FileWriter fw=new FileWriter(filepath);
+            fw.write(inputLoader.getDataBase().run().toJSONString());
+            fw.close();
+        }catch(Exception e){System.out.println(e);}
     }
 
 }

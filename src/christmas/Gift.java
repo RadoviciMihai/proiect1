@@ -23,6 +23,14 @@ public final class Gift {
         this.category = Category.retrieveByCategory(categoryString);
     }
 
+    public JSONObject getJsonObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("productName", productName);
+        jsonObject.put("price", price);
+        jsonObject.put("category", category.getValue());
+        return jsonObject;
+    }
+
     public String getProductName() {
         return productName;
     }

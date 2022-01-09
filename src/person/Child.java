@@ -1,6 +1,7 @@
 package person;
 
 import enums.Category;
+import enums.Cities;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -11,14 +12,14 @@ public final class Child {
     private int id;
     private String lastName;
     private int age;
-    private String city;
+    private Cities city;
     private double niceScore;
     private List<Category> giftsPreferences;
 
     Child(final int id,
           final String lastName,
           final int age,
-          final String city,
+          final Cities city,
           final double niceScore,
           final List<Category> giftsPreferences) {
         this.id = id;
@@ -33,7 +34,7 @@ public final class Child {
         this.id = ((Long) json.get("id")).intValue();
         this.lastName = (String) json.get("lastName");
         this.age = ((Long) json.get("age")).intValue();
-        this.city = (String) json.get("city");
+        this.city = Cities.retrieveByCities((String) json.get("city"));
         this.niceScore = ((Long) json.get("niceScore")).doubleValue();
         List<Category> giftsPreferences = new ArrayList<>();
         JSONArray jsonArray = (JSONArray) json.get("giftsPreferences");
@@ -68,11 +69,11 @@ public final class Child {
         this.age = age;
     }
 
-    public String getCity() {
+    public Cities getCity() {
         return city;
     }
 
-    public void setCity(final String city) {
+    public void setCity(final Cities city) {
         this.city = city;
     }
 

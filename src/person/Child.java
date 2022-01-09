@@ -63,8 +63,16 @@ public final class Child {
 
     public void update(final ChildUpdate childUpdate) {
         addToScoreList(childUpdate.getNiceScore());
-        for(int i = 0; i < childUpdate.getGiftsPreferences().size(); i++) {
-            giftsPreferences.add(i, childUpdate.getGiftsPreferences().get(i));
+        for(Category category : childUpdate.getGiftsPreferences()) {
+            giftsPreferences.remove(category);
+        }
+
+        int iter = 0;
+        for(Category category : childUpdate.getGiftsPreferences()) {
+            if(!giftsPreferences.contains(category)) {
+                giftsPreferences.add(iter, category);
+                iter++;
+            }
         }
     }
 

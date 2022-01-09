@@ -12,13 +12,17 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public final class InputLoader {
-    private final DataBase dataBase;
+    private DataBase dataBase;
 
     InputLoader(final String path) throws ParseException, IOException {
-        JSONParser parser = new JSONParser();
-        JSONObject jsonData = (JSONObject)
-                parser.parse(new FileReader(path));
-        this.dataBase = new DataBase(jsonData);
+        try {
+            JSONParser parser = new JSONParser();
+            JSONObject jsonData = (JSONObject)
+                    parser.parse(new FileReader(path));
+            this.dataBase = new DataBase(jsonData);
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public DataBase getDataBase() {

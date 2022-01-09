@@ -47,6 +47,14 @@ final class InitialData {
         }
     }
 
+    public Child getChildById(int id) {
+        for(Child child : getChildren()) {
+            if(child.getId() == id)
+                return child;
+        }
+        return null;
+    }
+
     public List<Child> getChildren() {
         return children;
     }

@@ -74,15 +74,15 @@ public final class DataBase {
                 JSONArray receivedGifts = new JSONArray();
                 for(Category category : child.getGiftsPreferences()) {
                     if (getCheapestGift(category) != null) {
-                        assignedBudget -= getCheapestGift(
-                                category).getPrice();
-                        if (assignedBudget > 0) {
+                        if (assignedBudget >= getCheapestGift(category).getPrice()) {
                             receivedGifts.add(
                                     getCheapestGift(
                                             category).getJsonObject());
+                            assignedBudget -= getCheapestGift(category).getPrice();
                         }
                     }
                 }
+                //System.out.println(child.getId() + " | " + receivedGifts.toJSONString());
                 copilJson.put("receivedGifts", receivedGifts);
                 listaCopii.add(copilJson);
             }
@@ -125,11 +125,8 @@ public final class DataBase {
         }
         for(ChildUpdate childUpdate :
                 annualChanges.get(i).getChildrenUpdates()) {
-            if (childUpdate.getId() <
-                initialData.getChildren().size())
-                initialData.getChildren().get(
-                        childUpdate.getId()
-                    ).update(childUpdate);
+            if (initialData.getChildById(childUpdate.getId()) != null)
+                initialData.getChildById(childUpdate.getId()).update(childUpdate);
         }
         santaBudget = annualChanges.get(i).getNewSantaBudget();
         for(Gift gift : annualChanges.get(i).getNewGifts()) {

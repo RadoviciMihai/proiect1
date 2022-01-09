@@ -38,10 +38,9 @@ public class FileIterator {
 
     public void run() throws IOException, ParseException {
         if (dir.listFiles() != null) {
-            int i = 0;
             for (File file : Objects.requireNonNull(dir.listFiles())) {
-                i++;
-                String filepath = Constants.OUTPUT_PATH + i + Constants.FILE_EXTENSION;
+
+                String filepath = Constants.OUTPUT_PATH + file.getName().substring(4);
                 File out = new File(filepath);
                 boolean isCreated = out.createNewFile();
                 if (isCreated) {
@@ -56,7 +55,6 @@ public class FileIterator {
                          throws ParseException,
                          IOException {
         InputLoader inputLoader = new InputLoader(absolutePath);
-        //System.out.println(inputLoader.getDataBase().run().toString());
         try{
             FileWriter fw=new FileWriter(filepath);
             fw.write(inputLoader.getDataBase().run().toJSONString());

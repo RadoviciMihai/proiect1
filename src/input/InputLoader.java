@@ -1,6 +1,5 @@
 package input;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -8,13 +7,21 @@ import org.json.simple.parser.JSONParser;
 import data.DataBase;
 import org.json.simple.parser.ParseException;
 
-public final class InputLoader {
-    private DataBase dataBase;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
-    InputLoader(final String jsonString) throws ParseException {
+public final class InputLoader {
+    private final DataBase dataBase;
+
+    InputLoader(final String path) throws ParseException, IOException {
         JSONParser parser = new JSONParser();
-        JSONObject jsonData = (JSONObject) parser.parse(jsonString);
-        DataBase dataBase = new DataBase(jsonData);
+        JSONObject jsonData = (JSONObject)
+                parser.parse(new FileReader(path));
+        this.dataBase = new DataBase(jsonData);
     }
 
+    public DataBase getDataBase() {
+        return dataBase;
+    }
 }

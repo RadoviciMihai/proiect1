@@ -18,9 +18,9 @@ public final class Gift {
 
     public Gift(final JSONObject json) {
         this.productName = (String) json.get("productName");
-        this.price = (double) json.get("price");
+        this.price = ((Long) json.get("price")).doubleValue();
         String categoryString = (String) json.get("category");
-        this.category = Category.valueOf(categoryString);
+        this.category = Category.retrieveByCategory(categoryString);
     }
 
     public String getProductName() {

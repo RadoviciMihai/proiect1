@@ -30,16 +30,16 @@ public final class Child {
     }
 
     public Child(final JSONObject json) {
-        this.id = (int) json.get("id");
+        this.id = ((Long) json.get("id")).intValue();
         this.lastName = (String) json.get("lastName");
-        this.age = (int) json.get("age");
+        this.age = ((Long) json.get("age")).intValue();
         this.city = (String) json.get("city");
-        this.niceScore = (double) json.get("niceScore");
+        this.niceScore = ((Long) json.get("niceScore")).doubleValue();
         List<Category> giftsPreferences = new ArrayList<>();
         JSONArray jsonArray = (JSONArray) json.get("giftsPreferences");
         for (Object o : jsonArray) {
             String categoryString = (String) o;
-            Category preference = Category.valueOf(categoryString);
+            Category preference = Category.retrieveByCategory(categoryString);
             giftsPreferences.add(preference);
         }
     }

@@ -28,4 +28,16 @@ public enum Category {
         this.value = value;
     }
 
+    public static Category retrieveByCategory(String str) {
+        return switch (str) {
+            case "Board Games" -> Category.BOARD_GAMES;
+            case "Books" -> Category.BOOKS;
+            case "Clothes" -> Category.CLOTHES;
+            case "Sweets" -> Category.SWEETS;
+            case "Technology" -> Category.TECHNOLOGY;
+            case "Toys" -> Category.TOYS;
+            default -> null;
+        };
+    }
+
 }

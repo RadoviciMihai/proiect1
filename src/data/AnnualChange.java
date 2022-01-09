@@ -26,8 +26,7 @@ public final class AnnualChange {
     }
 
     AnnualChange(final JSONObject json) {
-        this.newSantaBudget = (double) json.get("newSantaBudget");
-
+        this.newSantaBudget = ((Long) json.get("newSantaBudget")).doubleValue();
         List<Gift> newGifts = new ArrayList<>();
         JSONArray jsonArrayGifts = (JSONArray) json.get("newGifts");
         for (Object jsonArrayGift : jsonArrayGifts) {

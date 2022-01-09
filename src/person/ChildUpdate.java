@@ -21,13 +21,16 @@ public final class ChildUpdate {
     }
 
     public ChildUpdate(final JSONObject json) {
-        this.id = (int) json.get("id");
-        this.niceScore = (double) json.get("niceScore");
+        this.id = ((Long) json.get("id")).intValue();
+        if (json.get("niceScore") != null)
+            this.niceScore = ((Long) json.get("niceScore")).doubleValue();
+        else
+            this.niceScore = 0;
         List<Category> giftsPreferences = new ArrayList<>();
         JSONArray jsonArray = (JSONArray) json.get("giftsPreferences");
         for (Object o : jsonArray) {
             String categoryString = (String) o;
-            Category preference = Category.valueOf(categoryString);
+            Category preference = Category.retrieveByCategory(categoryString);
             giftsPreferences.add(preference);
         }
     }

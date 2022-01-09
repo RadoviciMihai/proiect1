@@ -23,12 +23,12 @@ public final class DataBase {
         this.annualChanges = annualChanges;
     }
 
-    public DataBase(final JSONObject json){
-        this.numberOfYears = (int) json.get("numberOfYears");
-        this.santaBudget = (double) json.get("santaBudget");
+    public DataBase(final JSONObject json) {
+        this.numberOfYears = ((Long) json.get("numberOfYears")).intValue();
+        this.santaBudget = ((Long) json.get("santaBudget")).doubleValue();
         this.initialData = new InitialData(
                 (JSONObject) json.get("initialData")
-            );
+        );
 
         List<AnnualChange> annualChanges = new ArrayList<>();
         JSONArray jsonArrayChanges = (JSONArray) json.get("annualChanges");

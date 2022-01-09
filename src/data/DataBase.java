@@ -1,5 +1,10 @@
 package data;
 
+import christmas.Gift;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public final class DataBase {
@@ -15,6 +20,24 @@ public final class DataBase {
         this.numberOfYears = numberOfYears;
         this.santaBudget = santaBudget;
         this.initialData = initialData;
+        this.annualChanges = annualChanges;
+    }
+
+    public DataBase(final JSONObject json){
+        this.numberOfYears = (int) json.get("numberOfYears");
+        this.santaBudget = (double) json.get("santaBudget");
+        this.initialData = new InitialData(
+                (JSONObject) json.get("initialData")
+            );
+
+        List<AnnualChange> annualChanges = new ArrayList<>();
+        JSONArray jsonArrayChanges = (JSONArray) json.get("annualChanges");
+        for (Object jsonArrayChange : jsonArrayChanges) {
+            annualChanges.add(new AnnualChange(
+                    (JSONObject) jsonArrayChange
+            ));
+        }
+
         this.annualChanges = annualChanges;
     }
 

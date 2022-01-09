@@ -1,2 +1,15 @@
 Starting audit...
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\AnnualChange.java:31:20: 'newGifts' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\AnnualChange.java:39:21: 'newChildren' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\AnnualChange.java:47:27: 'childrenUpdates' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\DataBase.java:3:8: Unused import - christmas.Gift. [UnusedImports]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\DataBase.java:26:43: '{' is not preceded with whitespace. [WhitespaceAround]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\DataBase.java:33:28: 'annualChanges' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\InitialData.java:23:21: 'children' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\data\InitialData.java:31:20: 'santaGiftsList' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\input\InputLoader.java:3:8: Unused import - org.json.simple.JSONArray. [UnusedImports]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\input\InputLoader.java:17:18: 'dataBase' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\person\Child.java:38:24: 'giftsPreferences' hides a field. [HiddenField]
+[ERROR] E:\Proiecte\POO\proiect1\.\src\person\ChildUpdate.java:26:24: 'giftsPreferences' hides a field. [HiddenField]
 Audit done.
+Checkstyle ends with 12 errors.

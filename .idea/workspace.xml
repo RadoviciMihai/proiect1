@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/DataBase.java" afterDir="false" />
+    <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="am adaugat input loader si am modificat toate clasele pentru a primi un constructor cu un JSONObject ca argument">
+      <change afterPath="$PROJECT_DIR$/src/input/InputLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/christmas/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/christmas/Gift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/AnnualChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/AnnualChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/InitialData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/person/ChildUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/ChildUpdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641647841055</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="obiectul DataBase">
+      <created>1641648180054</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1641648180054</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -125,6 +139,8 @@
     <MESSAGE value="obiectul ChildUpdate" />
     <MESSAGE value="obiectul initial data" />
     <MESSAGE value="obiectul anual change" />
-    <option name="LAST_COMMIT_MESSAGE" value="obiectul anual change" />
+    <MESSAGE value="obiectul DataBase" />
+    <MESSAGE value="am adaugat input loader si am modificat toate clasele pentru a primi un constructor cu un JSONObject ca argument" />
+    <option name="LAST_COMMIT_MESSAGE" value="am adaugat input loader si am modificat toate clasele pentru a primi un constructor cu un JSONObject ca argument" />
   </component>
 </project>

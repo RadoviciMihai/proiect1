@@ -1,7 +1,10 @@
 package person;
 
 import enums.Category;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class ChildUpdate {
@@ -15,6 +18,18 @@ public final class ChildUpdate {
         this.id = id;
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;
+    }
+
+    public ChildUpdate(final JSONObject json) {
+        this.id = (int) json.get("id");
+        this.niceScore = (double) json.get("niceScore");
+        List<Category> giftsPreferences = new ArrayList<>();
+        JSONArray jsonArray = (JSONArray) json.get("giftsPreferences");
+        for (Object o : jsonArray) {
+            String categoryString = (String) o;
+            Category preference = Category.valueOf(categoryString);
+            giftsPreferences.add(preference);
+        }
     }
 
     public int getId() {

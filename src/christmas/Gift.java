@@ -1,6 +1,7 @@
 package christmas;
 
 import enums.Category;
+import org.json.simple.JSONObject;
 
 public final class Gift {
     private String productName;
@@ -13,6 +14,13 @@ public final class Gift {
         this.productName = productName;
         this.price = price;
         this.category = category;
+    }
+
+    public Gift(final JSONObject json) {
+        this.productName = (String) json.get("productName");
+        this.price = (double) json.get("price");
+        String categoryString = (String) json.get("category");
+        this.category = Category.valueOf(categoryString);
     }
 
     public String getProductName() {

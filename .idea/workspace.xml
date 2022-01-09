@@ -5,38 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_10.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_10.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_11.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_11.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_12.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_12.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_13.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_13.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_14.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_14.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_15.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_15.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_16.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_16.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_17.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_17.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_18.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_18.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_19.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_19.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_20.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_20.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_21.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_21.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_22.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_22.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_23.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_23.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_24.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_25.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_7.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_8.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_9.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_9.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/InitialData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/input/FileIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/input/FileIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/input/InputLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/input/InputLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/person/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641751950387</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="am terminat cu punctajul&#10; :)">
+      <created>1641757363165</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1641757363165</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -196,6 +173,7 @@
     <MESSAGE value="am adaugat input loader si am modificat toate clasele pentru a primi un constructor cu un JSONObject ca argument" />
     <MESSAGE value="am modificat ca orasele sa fie enum, nu string" />
     <MESSAGE value="prima stare functionala" />
-    <option name="LAST_COMMIT_MESSAGE" value="prima stare functionala" />
+    <MESSAGE value="am terminat cu punctajul&#10; :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="am terminat cu punctajul&#10; :)" />
   </component>
 </project>

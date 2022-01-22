@@ -17,4 +17,13 @@ public enum CityStrategyEnum {
     CityStrategyEnum(final String value) {
         this.value = value;
     }
+
+    public static CityStrategyEnum retrieveByStrategy(final String strategy) {
+        return switch (strategy) {
+            case "niceScoreCity" -> CityStrategyEnum.NICE_SCORE_CITY;
+            case "id" -> CityStrategyEnum.ID;
+            case "niceScore" -> CityStrategyEnum.NICE_SCORE;
+            default -> null;
+        };
+    }
 }

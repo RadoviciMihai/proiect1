@@ -3,6 +3,7 @@ package person;
 import common.Constants;
 import enums.Category;
 import enums.Cities;
+import enums.ElvesType;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -16,8 +17,10 @@ public final class Child {
     private int age;
     private Cities city;
     private double niceScore;
+    private double niceScoreBonus;
     private List<Category> giftsPreferences;
     private List<Double> listaScoruri;
+    private ElvesType elf;
 
     Child(final int id,
           final String lastName,
@@ -25,7 +28,9 @@ public final class Child {
           final int age,
           final Cities city,
           final double niceScore,
-          final List<Category> giftsPreferences) {
+          final List<Category> giftsPreferences,
+          final double niceScoreBonus,
+          final ElvesType elf) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -35,6 +40,8 @@ public final class Child {
         this.giftsPreferences = giftsPreferences;
         this.listaScoruri = new ArrayList<>();
         this.listaScoruri.add(this.niceScore);
+        this.niceScoreBonus = niceScoreBonus;
+        this.elf = elf;
     }
 
     public Child(final JSONObject json) {
@@ -44,16 +51,18 @@ public final class Child {
         this.age = ((Long) json.get("age")).intValue();
         this.city = Cities.retrieveByCities((String) json.get("city"));
         this.niceScore = ((Long) json.get("niceScore")).doubleValue();
-        List<Category> giftsPreferences = new ArrayList<>();
+        List<Category> giftsPreferencesAux = new ArrayList<>();
         JSONArray jsonArray = (JSONArray) json.get("giftsPreferences");
         for (Object o : jsonArray) {
             String categoryString = (String) o;
             Category preference = Category.retrieveByCategory(categoryString);
-            giftsPreferences.add(preference);
+            giftsPreferencesAux.add(preference);
         }
-        this.giftsPreferences = giftsPreferences;
+        this.giftsPreferences = giftsPreferencesAux;
         this.listaScoruri = new ArrayList<>();
         this.listaScoruri.add(this.niceScore);
+        this.niceScoreBonus = ((Long) json.get("niceScoreBonus")).doubleValue();
+        this.elf = ElvesType.retrieveByElf((String) json.get("elf"));
     }
 
     public void addToScoreList(final Double scor) {
@@ -75,9 +84,10 @@ public final class Child {
                 iter++;
             }
         }
+        elf = childUpdate.getElf();
     }
 
-    public double getAverageScore() {
+    public double getInitAverageScore() {
 
         if (age < Constants.BABY_LIMIT) {
             return Constants.KID_NICE_SCORE;
@@ -100,6 +110,16 @@ public final class Child {
             return total / (n * (n + 1) / 2);
         }
         return 0;
+    }
+
+
+    public double getAverageScore() {
+        double averageScore = getInitAverageScore();
+        averageScore += averageScore * niceScoreBonus / Constants.ONE_HUNDRED;
+        if (averageScore > Constants.KID_NICE_SCORE) {
+            return Constants.KID_NICE_SCORE;
+        }
+        return averageScore;
     }
 
     public int getId() {
@@ -160,6 +180,10 @@ public final class Child {
 
     public List<Category> getGiftsPreferences() {
         return giftsPreferences;
+    }
+
+    public ElvesType getElf() {
+        return elf;
     }
 
     public void setGiftsPreferences(final List<Category> giftsPreferences) {

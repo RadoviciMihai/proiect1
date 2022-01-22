@@ -4,7 +4,6 @@ import christmas.Gift;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import person.Child;
-import person.ChildUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,24 +20,24 @@ final class InitialData {
 
     InitialData(final JSONObject json) {
 
-        List<Child> children = new ArrayList<>();
+        List<Child> childrenAux = new ArrayList<>();
         JSONArray jsonArrayChildren = (JSONArray) json.get("children");
         for (Object jsonArrayChild : jsonArrayChildren) {
-            children.add(new Child(
+            childrenAux.add(new Child(
                     (JSONObject) jsonArrayChild
             ));
         }
 
-        List<Gift> santaGiftsList = new ArrayList<>();
+        List<Gift> santaGiftsListAux = new ArrayList<>();
         JSONArray jsonArrayGifts = (JSONArray) json.get("santaGiftsList");
         for (Object jsonArrayGift : jsonArrayGifts) {
-            santaGiftsList.add(new Gift(
+            santaGiftsListAux.add(new Gift(
                     (JSONObject) jsonArrayGift
             ));
         }
 
-        this.santaGiftsList = santaGiftsList;
-        this.children = children;
+        this.santaGiftsList = santaGiftsListAux;
+        this.children = childrenAux;
     }
 
     public void ageAllChildren() {

@@ -1,6 +1,7 @@
 package person;
 
 import enums.Category;
+import enums.ElvesType;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -11,30 +12,34 @@ public final class ChildUpdate {
     private int id;
     private double niceScore;
     private List<Category> giftsPreferences;
+    private ElvesType elf;
 
     ChildUpdate(final int id,
                 final double niceScore,
-                final List<Category> giftsPreferences) {
+                final List<Category> giftsPreferences,
+                final ElvesType elf) {
         this.id = id;
         this.niceScore = niceScore;
         this.giftsPreferences = giftsPreferences;
+        this.elf = elf;
     }
 
     public ChildUpdate(final JSONObject json) {
         this.id = ((Long) json.get("id")).intValue();
+        this.elf = ElvesType.retrieveByElf((String) json.get("elf"));
         if (json.get("niceScore") != null) {
             this.niceScore = ((Long) json.get("niceScore")).doubleValue();
         } else {
             this.niceScore = -1;
         }
-        List<Category> giftsPreferences = new ArrayList<>();
+        List<Category> giftsPreferencesAux = new ArrayList<>();
         JSONArray jsonArray = (JSONArray) json.get("giftsPreferences");
         for (Object o : jsonArray) {
             String categoryString = (String) o;
             Category preference = Category.retrieveByCategory(categoryString);
-            giftsPreferences.add(preference);
+            giftsPreferencesAux.add(preference);
         }
-        this.giftsPreferences = giftsPreferences;
+        this.giftsPreferences = giftsPreferencesAux;
     }
 
     public int getId() {
@@ -55,6 +60,10 @@ public final class ChildUpdate {
 
     public List<Category> getGiftsPreferences() {
         return giftsPreferences;
+    }
+
+    public ElvesType getElf() {
+        return elf;
     }
 
     public void setGiftsPreferences(final List<Category> giftsPreferences) {

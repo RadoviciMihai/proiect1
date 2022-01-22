@@ -22,4 +22,14 @@ public enum ElvesType {
     ElvesType(final String value) {
         this.value = value;
     }
+
+    public static ElvesType retrieveByElf(final String elf) {
+        return switch (elf) {
+            case "yellow" -> ElvesType.YELLOW;
+            case "black" -> ElvesType.BLACK;
+            case "pink" -> ElvesType.PINK;
+            case "white" -> ElvesType.WHITE;
+            default -> null;
+        };
+    }
 }

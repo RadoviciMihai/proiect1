@@ -3,6 +3,7 @@ package data;
 import christmas.Gift;
 import common.Constants;
 import enums.Category;
+import enums.ElvesType;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import person.Child;
@@ -34,15 +35,15 @@ public final class DataBase {
                 (JSONObject) json.get("initialData")
         );
 
-        List<AnnualChange> annualChanges = new ArrayList<>();
+        List<AnnualChange> annualChangesAux = new ArrayList<>();
         JSONArray jsonArrayChanges = (JSONArray) json.get("annualChanges");
         for (Object jsonArrayChange : jsonArrayChanges) {
-            annualChanges.add(new AnnualChange(
+            annualChangesAux.add(new AnnualChange(
                     (JSONObject) jsonArrayChange
             ));
         }
 
-        this.annualChanges = annualChanges;
+        this.annualChanges = annualChangesAux;
     }
 
     public JSONObject getOutputChildren() {
@@ -58,6 +59,13 @@ public final class DataBase {
         for (Child child : children) {
             if (child.getAge() < Constants.TEEN_LIMIT) {
                 Double assignedBudget = budgetUnit * child.getAverageScore();
+                if (child.getElf() == ElvesType.BLACK) {
+                    assignedBudget -= assignedBudget * Constants.ELF_MOD;
+                }
+                if (child.getElf() == ElvesType.PINK) {
+                    assignedBudget += assignedBudget * Constants.ELF_MOD;
+                }
+
                 JSONObject copilJson = new JSONObject();
                 copilJson.put("id", child.getId());
                 copilJson.put("lastName", child.getLastName());
@@ -73,18 +81,29 @@ public final class DataBase {
 
                 JSONArray receivedGifts = new JSONArray();
                 for (Category category : child.getGiftsPreferences()) {
-                    if (getCheapestGift(category) != null) {
+                    Gift cheapestGift = getCheapestGift(category);
+                    if (cheapestGift != null) {
                         if (assignedBudget
-                                >= getCheapestGift(category).getPrice()) {
+                                >= cheapestGift.getPrice()) {
                             receivedGifts.add(
-                                    getCheapestGift(
-                                    category).getJsonObject());
-                            assignedBudget -= getCheapestGift(
-                                    category
-                                ).getPrice();
+                                    cheapestGift.getJsonObject());
+                            cheapestGift.reduceQuantity();
+                            assignedBudget -= cheapestGift.getPrice();
                         }
                     }
                 }
+
+                if (receivedGifts.isEmpty()
+                        && child.getElf() == ElvesType.YELLOW) {
+                    Category category = child.getGiftsPreferences().get(0);
+                    Gift cheapestGift = getCheapestGift(category);
+                    if (cheapestGift != null) {
+                        receivedGifts.add(
+                                cheapestGift.getJsonObject());
+                        cheapestGift.reduceQuantity();
+                    }
+                }
+
                 copilJson.put("receivedGifts", receivedGifts);
                 listaCopii.add(copilJson);
             }
@@ -106,13 +125,15 @@ public final class DataBase {
         return result;
     }
 
-    public Gift getCheapestGift(Category category) {
+    public Gift getCheapestGift(final Category category) {
         List<Gift> giftList = initialData.getSantaGiftsList();
         double minPrice = Double.MAX_VALUE;
         Gift cheapestGift = null;
         for (Gift gift : giftList) {
             if (gift.getCategory() == category
-                    && gift.getPrice() < minPrice) {
+                    && gift.getPrice() < minPrice
+                    && gift.getQuantity() > 0
+            ) {
                 minPrice = gift.getPrice();
                 cheapestGift = gift;
             }

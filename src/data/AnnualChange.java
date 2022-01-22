@@ -5,6 +5,8 @@ import christmas.Gift;
 import java.util.ArrayList;
 import java.util.List;
 
+import enums.Cities;
+import enums.CityStrategyEnum;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import person.Child;
@@ -15,47 +17,50 @@ public final class AnnualChange {
     private final List<Gift> newGifts;
     private final List<Child> newChildren;
     private final List<ChildUpdate> childrenUpdates;
+    private final CityStrategyEnum strategy;
 
     AnnualChange(final double newSantaBudget,
                  final List<Gift> newGifts,
                  final List<Child> newChildren,
-                 final List<ChildUpdate> childrenUpdates) {
+                 final List<ChildUpdate> childrenUpdates,
+                 final CityStrategyEnum strategy) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;
         this.childrenUpdates = childrenUpdates;
+        this.strategy = strategy;
     }
 
     AnnualChange(final JSONObject json) {
         this.newSantaBudget = ((Long) json.get("newSantaBudget")).doubleValue();
-        List<Gift> newGifts = new ArrayList<>();
+        List<Gift> newGiftsAux = new ArrayList<>();
         JSONArray jsonArrayGifts = (JSONArray) json.get("newGifts");
         for (Object jsonArrayGift : jsonArrayGifts) {
-            newGifts.add(new Gift(
+            newGiftsAux.add(new Gift(
                     (JSONObject) jsonArrayGift
             ));
         }
 
-        List<Child> newChildren = new ArrayList<>();
+        List<Child> newChildrenAux = new ArrayList<>();
         JSONArray jsonArrayChildren = (JSONArray) json.get("newChildren");
         for (Object jsonArrayChild : jsonArrayChildren) {
-            newChildren.add(new Child(
+            newChildrenAux.add(new Child(
                     (JSONObject) jsonArrayChild
             ));
         }
 
-        List<ChildUpdate> childrenUpdates = new ArrayList<>();
+        List<ChildUpdate> childrenUpdatesAux = new ArrayList<>();
         JSONArray jsonArrayUpdates = (JSONArray) json.get("childrenUpdates");
         for (Object jsonArrayUpdate : jsonArrayUpdates) {
-            childrenUpdates.add(new ChildUpdate(
+            childrenUpdatesAux.add(new ChildUpdate(
                     (JSONObject) jsonArrayUpdate
             ));
         }
 
-        this.newGifts = newGifts;
-        this.childrenUpdates = childrenUpdates;
-        this.newChildren = newChildren;
-
+        this.newGifts = newGiftsAux;
+        this.childrenUpdates = childrenUpdatesAux;
+        this.newChildren = newChildrenAux;
+        this.strategy = CityStrategyEnum.retrieveByStrategy((String) json.get("strategy"));
     }
 
     public double getNewSantaBudget() {

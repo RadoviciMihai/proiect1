@@ -17,6 +17,7 @@ public final class Child {
     private int age;
     private Cities city;
     private double niceScore;
+    private double cityScore;
     private double niceScoreBonus;
     private List<Category> giftsPreferences;
     private List<Double> listaScoruri;
@@ -42,6 +43,7 @@ public final class Child {
         this.listaScoruri.add(this.niceScore);
         this.niceScoreBonus = niceScoreBonus;
         this.elf = elf;
+        this.cityScore = 0;
     }
 
     public Child(final JSONObject json) {
@@ -63,6 +65,7 @@ public final class Child {
         this.listaScoruri.add(this.niceScore);
         this.niceScoreBonus = ((Long) json.get("niceScoreBonus")).doubleValue();
         this.elf = ElvesType.retrieveByElf((String) json.get("elf"));
+        this.cityScore = 0;
     }
 
     public void addToScoreList(final Double scor) {
@@ -160,6 +163,18 @@ public final class Child {
 
     public void setCity(final Cities city) {
         this.city = city;
+    }
+
+    public double getCityScore() {
+        return cityScore;
+    }
+
+    public String getCityString() {
+        return city.toString();
+    }
+
+    public void setCityScore(final double cityScore) {
+        this.cityScore = cityScore;
     }
 
     public double getNiceScore() {

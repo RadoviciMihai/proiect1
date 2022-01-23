@@ -16,7 +16,7 @@ public final class Constants {
     public static final Integer CUT_LENGTH = 4;
     public static final Integer KID_NICE_SCORE = 10;
     public static final Integer ONE_HUNDRED = 100;
-    public static final Double ELF_MOD = 0.3;
+    public static final int ELF_MOD = 30;
 
 
     private Constants() {

@@ -5,7 +5,6 @@ import christmas.Gift;
 import java.util.ArrayList;
 import java.util.List;
 
-import enums.Cities;
 import enums.CityStrategyEnum;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -65,6 +64,10 @@ public final class AnnualChange {
 
     public double getNewSantaBudget() {
         return newSantaBudget;
+    }
+
+    public CityStrategyEnum getStrategy() {
+        return strategy;
     }
 
     public List<Gift> getNewGifts() {

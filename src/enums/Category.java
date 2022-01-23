@@ -37,7 +37,7 @@ public enum Category {
         /**
          *
          * transforms string in enum
-         * @return the Category
+         * @param str the String
          *
          */
 

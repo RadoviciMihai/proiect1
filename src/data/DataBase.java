@@ -3,6 +3,8 @@ package data;
 import christmas.Gift;
 import common.Constants;
 import enums.Category;
+import enums.Cities;
+import enums.CityStrategyEnum;
 import enums.ElvesType;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,7 +12,11 @@ import person.Child;
 import person.ChildUpdate;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public final class DataBase {
     private int numberOfYears;
@@ -46,24 +52,36 @@ public final class DataBase {
         this.annualChanges = annualChangesAux;
     }
 
-    public JSONObject getOutputChildren() {
+    public JSONObject getOutputChildren(final CityStrategyEnum strategyEnum) {
         double averageScoreSum = 0;
-        List<Child> children = initialData.getChildren();
+        List<Child> children = new ArrayList<>(initialData.getChildren());
         for (Child child : children) {
             if (child.getAge() < Constants.TEEN_LIMIT) {
                 averageScoreSum += child.getAverageScore();
             }
         }
         double budgetUnit = getSantaBudget() / averageScoreSum;
-        JSONArray listaCopii = new JSONArray();
+
+        if (strategyEnum == CityStrategyEnum.NICE_SCORE) {
+            children.sort(Comparator.comparing(Child::getAverageScore).reversed());
+        }
+
+        if (strategyEnum == CityStrategyEnum.NICE_SCORE_CITY) {
+            children.sort(Comparator.comparing(Child::getCityString));
+            children.sort(Comparator.comparing(Child::getCityScore).reversed());
+        }
+
+        HashMap<Integer, JSONObject> listaCopii = new HashMap<Integer, JSONObject>();
         for (Child child : children) {
             if (child.getAge() < Constants.TEEN_LIMIT) {
-                Double assignedBudget = budgetUnit * child.getAverageScore();
+                Double assignedBudget = child.getAverageScore() * budgetUnit;
                 if (child.getElf() == ElvesType.BLACK) {
-                    assignedBudget -= assignedBudget * Constants.ELF_MOD;
+                    assignedBudget -= assignedBudget * Constants.ELF_MOD
+                            / Constants.ONE_HUNDRED;
                 }
                 if (child.getElf() == ElvesType.PINK) {
-                    assignedBudget += assignedBudget * Constants.ELF_MOD;
+                    assignedBudget += assignedBudget * Constants.ELF_MOD
+                            / Constants.ONE_HUNDRED;
                 }
 
                 JSONObject copilJson = new JSONObject();
@@ -96,7 +114,7 @@ public final class DataBase {
                 if (receivedGifts.isEmpty()
                         && child.getElf() == ElvesType.YELLOW) {
                     Category category = child.getGiftsPreferences().get(0);
-                    Gift cheapestGift = getCheapestGift(category);
+                    Gift cheapestGift = getCheapestGiftYellow(category);
                     if (cheapestGift != null) {
                         receivedGifts.add(
                                 cheapestGift.getJsonObject());
@@ -105,21 +123,28 @@ public final class DataBase {
                 }
 
                 copilJson.put("receivedGifts", receivedGifts);
-                listaCopii.add(copilJson);
+                listaCopii.put(child.getId(), copilJson);
             }
         }
+
+        JSONArray outListaCopii = new JSONArray();
+        SortedSet<Integer> keys = new TreeSet<>(listaCopii.keySet());
+        for (Integer key : keys) {
+            JSONObject value = listaCopii.get(key);
+            outListaCopii.add(value);
+        }
         JSONObject outputChildren = new JSONObject();
-        outputChildren.put("children", listaCopii);
+        outputChildren.put("children", outListaCopii);
         return outputChildren;
     }
 
     public JSONObject run() {
         JSONObject result = new JSONObject();
         JSONArray annualChildren = new JSONArray();
-        annualChildren.add(getOutputChildren());
+        annualChildren.add(getOutputChildren(CityStrategyEnum.ID));
         for (int i = 0; i < numberOfYears; i++) {
-            update(i);
-            annualChildren.add(getOutputChildren());
+            CityStrategyEnum strategyEnum = update(i);
+            annualChildren.add(getOutputChildren(strategyEnum));
         }
         result.put("annualChildren", annualChildren);
         return result;
@@ -132,8 +157,7 @@ public final class DataBase {
         for (Gift gift : giftList) {
             if (gift.getCategory() == category
                     && gift.getPrice() < minPrice
-                    && gift.getQuantity() > 0
-            ) {
+                    && gift.getQuantity() > 0) {
                 minPrice = gift.getPrice();
                 cheapestGift = gift;
             }
@@ -141,7 +165,24 @@ public final class DataBase {
         return cheapestGift;
     }
 
-    public void update(final int i) {
+    private Gift getCheapestGiftYellow(final Category category) {
+        List<Gift> giftList = initialData.getSantaGiftsList();
+        double minPrice = Double.MAX_VALUE;
+        Gift cheapestGift = null;
+        for (Gift gift : giftList) {
+            if (gift.getCategory() == category
+                    && gift.getPrice() < minPrice) {
+                minPrice = gift.getPrice();
+                cheapestGift = gift;
+            }
+        }
+        if (cheapestGift.getQuantity() == 0) {
+            return null;
+        }
+        return cheapestGift;
+    }
+
+    public CityStrategyEnum update(final int i) {
         initialData.ageAllChildren();
         for (Child child : annualChanges.get(i).getNewChildren()) {
             initialData.getChildren().add(child);
@@ -157,6 +198,33 @@ public final class DataBase {
         for (Gift gift : annualChanges.get(i).getNewGifts()) {
             initialData.getSantaGiftsList().add(gift);
         }
+        HashMap<Cities, Double> totalCityScore = new HashMap<>();
+        HashMap<Cities, Integer> childrenInCity = new HashMap<>();
+        HashMap<Cities, Double> averageCityScore = new HashMap<>();
+        for (Child child : initialData.getChildren()) {
+            if (child.getAge() < Constants.TEEN_LIMIT) {
+                if (totalCityScore.containsKey(child.getCity())) {
+                    totalCityScore.put(child.getCity(),
+                            totalCityScore.get(child.getCity())
+                                    + child.getAverageScore());
+                    childrenInCity.put(child.getCity(),
+                            childrenInCity.get(child.getCity()) + 1);
+                } else {
+                    totalCityScore.put(child.getCity(), child.getAverageScore());
+                    childrenInCity.put(child.getCity(), 1);
+                }
+            }
+        }
+        for (Cities city : totalCityScore.keySet()) {
+            averageCityScore.put(city,
+                    totalCityScore.get(city) / childrenInCity.get(city));
+        }
+        for (Child child : initialData.getChildren()) {
+            if (child.getAge() < Constants.TEEN_LIMIT) {
+                child.setCityScore(averageCityScore.get(child.getCity()));
+            }
+        }
+        return annualChanges.get(i).getStrategy();
     }
 
     public int getNumberOfYears() {

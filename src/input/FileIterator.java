@@ -57,6 +57,7 @@ public class FileIterator {
                          final String filepath)
             throws ParseException,
             IOException {
+        System.out.println(absolutePath);
         InputLoader inputLoader = new InputLoader(absolutePath);
         try {
             FileWriter fw = new FileWriter(filepath);

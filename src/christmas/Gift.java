@@ -27,6 +27,9 @@ public final class Gift {
         this.category = Category.retrieveByCategory(categoryString);
     }
 
+    /**
+     * @return the gift in JSONObject format
+     */
     public JSONObject getJsonObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("productName", productName);
@@ -51,6 +54,9 @@ public final class Gift {
         this.price = price;
     }
 
+    /**
+     * decrement the gift stock
+     */
     public void reduceQuantity() {
         this.quantity--;
     }

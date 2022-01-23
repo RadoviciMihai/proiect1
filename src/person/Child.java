@@ -68,12 +68,20 @@ public final class Child {
         this.cityScore = 0;
     }
 
+    /**
+     * adauga scorul la lista de scoruri
+     * @param scor
+     */
     public void addToScoreList(final Double scor) {
         if (scor >= 0) {
             listaScoruri.add(scor);
         }
     }
 
+    /**
+     * actualizeaza copilul
+     * @param childUpdate
+     */
     public void update(final ChildUpdate childUpdate) {
         addToScoreList(childUpdate.getNiceScore());
         for (Category category : childUpdate.getGiftsPreferences()) {
@@ -90,6 +98,9 @@ public final class Child {
         elf = childUpdate.getElf();
     }
 
+    /**
+     * @return initial average score
+     */
     public double getInitAverageScore() {
 
         if (age < Constants.BABY_LIMIT) {
@@ -115,7 +126,9 @@ public final class Child {
         return 0;
     }
 
-
+    /**
+     * @return average score with bonus modifiers
+     */
     public double getAverageScore() {
         double averageScore = getInitAverageScore();
         averageScore += averageScore * niceScoreBonus / Constants.ONE_HUNDRED;
@@ -169,6 +182,10 @@ public final class Child {
         return cityScore;
     }
 
+    /**
+     *
+     * @return string from city enum
+     */
     public String getCityString() {
         return city.toString();
     }
@@ -177,10 +194,16 @@ public final class Child {
         this.cityScore = cityScore;
     }
 
+    /**
+     * @return inital nice score
+     */
     public double getNiceScore() {
         return niceScore;
     }
 
+    /**
+     * @return the nice score history as JSONArray
+     */
     public JSONArray getNiceScoreHistory() {
         JSONArray niceScoreHistory = new JSONArray();
         for (Double scor : listaScoruri) {
@@ -201,10 +224,17 @@ public final class Child {
         return elf;
     }
 
+    /**
+     * @param giftsPreferences
+     * sets the gift preferences
+     */
     public void setGiftsPreferences(final List<Category> giftsPreferences) {
         this.giftsPreferences = giftsPreferences;
     }
 
+    /**
+     * @return the gift preferences in JSONArray format
+     */
     public JSONArray getGiftsPreferencesJson() {
         JSONArray categoryList = new JSONArray();
         for (Category category : giftsPreferences) {

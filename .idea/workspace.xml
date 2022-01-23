@@ -7,23 +7,12 @@
     <list default="true" id="d662010a-d6c5-4bb5-92a6-5b13c2206c94" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_13.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_13.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_14.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_14.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_16.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_16.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_18.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_18.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_20.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_20.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_22.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_22.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_24.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_24.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_25.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_25.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_26.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_26.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_27.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_27.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_28.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_28.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_29.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_29.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_30.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_30.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/AnnualChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/AnnualChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/christmas/Gift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/christmas/Gift.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/enums/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/Cities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Cities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/CityStrategyEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/CityStrategyEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/ElvesType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/ElvesType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/input/FileIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/input/FileIterator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/person/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/person/Child.java" afterDir="false" />
     </list>
@@ -163,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642891038137</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="am terminat ^_^">
+      <created>1642967135019</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1642967135019</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -177,6 +173,7 @@
     <MESSAGE value="am adaugat input loader si am modificat toate clasele pentru a primi un constructor cu un JSONObject ca argument" />
     <MESSAGE value="am updatat pentru etapa 2" />
     <MESSAGE value="am adaugat si modificat restul claselor" />
-    <option name="LAST_COMMIT_MESSAGE" value="am adaugat si modificat restul claselor" />
+    <MESSAGE value="am terminat ^_^" />
+    <option name="LAST_COMMIT_MESSAGE" value="am terminat ^_^" />
   </component>
 </project>

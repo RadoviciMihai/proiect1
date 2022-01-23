@@ -18,6 +18,10 @@ public enum CityStrategyEnum {
         this.value = value;
     }
 
+    /**
+     * @param strategy
+     * @return strategy enum from string
+     */
     public static CityStrategyEnum retrieveByStrategy(final String strategy) {
         return switch (strategy) {
             case "niceScoreCity" -> CityStrategyEnum.NICE_SCORE_CITY;

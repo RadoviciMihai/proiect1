@@ -52,6 +52,11 @@ public final class DataBase {
         this.annualChanges = annualChangesAux;
     }
 
+    /**
+     *
+     * @param strategyEnum the gifting strategy
+     * @return the children list as a JSONObject
+     */
     public JSONObject getOutputChildren(final CityStrategyEnum strategyEnum) {
         double averageScoreSum = 0;
         List<Child> children = new ArrayList<>(initialData.getChildren());
@@ -138,6 +143,10 @@ public final class DataBase {
         return outputChildren;
     }
 
+    /**
+     * runs the input file
+     * @return the result json
+     */
     public JSONObject run() {
         JSONObject result = new JSONObject();
         JSONArray annualChildren = new JSONArray();
@@ -150,6 +159,10 @@ public final class DataBase {
         return result;
     }
 
+    /**
+     * @param category
+     * @return the cheapest gift in category that is still in stock
+     */
     public Gift getCheapestGift(final Category category) {
         List<Gift> giftList = initialData.getSantaGiftsList();
         double minPrice = Double.MAX_VALUE;
@@ -165,6 +178,11 @@ public final class DataBase {
         return cheapestGift;
     }
 
+    /**
+     *
+     * @param category
+     * @return the gift that should be assigned by yellow elf
+     */
     private Gift getCheapestGiftYellow(final Category category) {
         List<Gift> giftList = initialData.getSantaGiftsList();
         double minPrice = Double.MAX_VALUE;
@@ -182,6 +200,11 @@ public final class DataBase {
         return cheapestGift;
     }
 
+    /**
+     * updates the database with the current year annual changes
+     * @param i is the year number (+1)
+     * @return the gifting strategy for this year
+     */
     public CityStrategyEnum update(final int i) {
         initialData.ageAllChildren();
         for (Child child : annualChanges.get(i).getNewChildren()) {

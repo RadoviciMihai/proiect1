@@ -23,6 +23,11 @@ public enum ElvesType {
         this.value = value;
     }
 
+    /**
+     *
+     * @param elf
+     * @return the enum elf by input string
+     */
     public static ElvesType retrieveByElf(final String elf) {
         return switch (elf) {
             case "yellow" -> ElvesType.YELLOW;

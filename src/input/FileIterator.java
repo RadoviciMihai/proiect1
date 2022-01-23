@@ -38,6 +38,11 @@ public class FileIterator {
 
     }
 
+    /**
+     * find the filepath and runs the test
+     * @throws IOException
+     * @throws ParseException
+     */
     public final void run() throws IOException, ParseException {
         if (dir.listFiles() != null) {
             for (File file : Objects.requireNonNull(dir.listFiles())) {

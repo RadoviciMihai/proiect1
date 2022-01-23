@@ -32,14 +32,13 @@ public enum Category {
         return value;
     }
 
+    /**
+     *
+     * transforms string in enum
+     * @param str the String
+     *
+     */
     public static Category retrieveByCategory(final String str) {
-
-        /**
-         *
-         * transforms string in enum
-         * @param str the String
-         *
-         */
 
         return switch (str) {
             case "Board Games" -> Category.BOARD_GAMES;
